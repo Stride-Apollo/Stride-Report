@@ -16,12 +16,9 @@ Introduction
 
 This is the report for our Bachelor Thesis project, which consists of extending the Stride software project.
 
-Table of contents
-=================
-
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Table of contents
    
    functionals.rst
    nonfunctionals.rst
