@@ -23,6 +23,5 @@ Table of contents
    :maxdepth: 2
    :caption: Contents:
    
-   index.rst
    functionals.rst
    nonfunctionals.rst
