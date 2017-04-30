@@ -4,12 +4,11 @@
    contain the root `toctree` directive.
 
 ========================
- Report Bachelor Thesis
+ Bachelor Thesis Report
 ========================
 --------------
  Group Apollo
 --------------
-
 
 Introduction
 ============
