@@ -3,19 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Bachelor Thesis Report's documentation!
-==================================================
+========================
+ Report Bachelor Thesis
+========================
+--------------
+ Group Apollo
+--------------
+
+
+Introduction
+============
+
+This is the report for our Bachelor Thesis project, which consists of extending the Stride software project.
+
+Table of contents
+=================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
-Hello world!
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   
+   index.rst
+   functionals.rst
+   nonfunctionals.rst
