@@ -10,6 +10,7 @@ Welcome to Bachelor Thesis Report's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+Hello world!
 
 
 Indices and tables
