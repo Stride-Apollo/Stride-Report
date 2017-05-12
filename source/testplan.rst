@@ -46,7 +46,7 @@ There are a few classes that help the generator, for example one that provides a
 
 Testing the generator itself is split in three parts:
 
-  - **Input files**: When input files are syntactically or semantically incorrect, the generator has to properly them.
+  - **Input files**: When input files are syntactically or semantically incorrect, the generator has to properly handle them.
   
   - **Distributions**: We have to check whether the distribution of the generated data is as we expect. Extreme values shouldn't occur in sufficiently large populations. For example, it is virtually impossible for a random generated population of one million people to have half a million unemployed people when the given unemployment rate is 10%.
   
