@@ -22,3 +22,4 @@ This is the report for our Bachelor Thesis project, which consists of extending 
    
    functionals.rst
    nonfunctionals.rst
+   testplan.rst
