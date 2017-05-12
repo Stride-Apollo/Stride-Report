@@ -1,54 +1,67 @@
-Testplan
-========
+Test plan
+=========
 
-We gebruiken gtest voor onze tests. De tests zelf splitsen we op in 2 grote delen, de unit tests die normaal snel uitgevoerd kunnen worden en de scenario tests die een pak meer tijd in beslag nemen. Via een parameter die at runtime wordt meegegeven kiezen we tussen de twee delen.
+We use `Google Test <https://github.com/google/googletest>`_ for our tests. We split the tests in two major parts: unit tests and scenario tests. We choose between the two parts via a parameter provided at runtime.
+
+We have also decided that CTest did not have any more value to us, except making the build process more complicated. Therefore, we no longer use it.
 
 Continuous Integration
 ----------------------
 
-Er zijn 4 verschillende keuzes te maken:
+There are 4 different choices to be made:
 
-- (korte) unit tests of (lange) scenario tests
+  - (short) **unit tests** or (long) **scenario tests**
 
-- gcc of clang
+  - **gcc** or **clang**
 
-- TBB, OpenMP of de dummy implementatie
+  - **TBB**, **OpenMP** or the **dummy** implementation
 
-- met of zonder MPI (maar, zie Multiregio hieronder)
+  - with or without **MPI** (however, see MultiRegio_)
 
-Alle tests worden dikwijls uitgevoerd; namelijk bij alle commits. Een pull request mag niet doorgaan tenzij CI zegt dat het ok is (bovenop een manuele review). Om snel feedback te krijgen plannen we om unit tests en scenario tests op te splitsen met behulp van `Travis Stages <https://docs.travis-ci.com/user/build-stages>`_, een erg recente feature.
+All tests are executed often; on all commits. A pull request may only be merged if CI says it's ok, on top of a manual review. To get quick feedback from unit tests, we're planning to split unit tests from scenario tests using `Travis Stages <https://docs.travis-ci.com/user/build-stages>`_, a very recent feature.
 
-Opdrachten
-----------
+Assignments
+-----------
 
-Voor elke deelopdracht overlopen we even hoe we deze functionaliteit gaan testen.
+For each assignment we'll discuss how we are going to test this functionality.
 
 HDF5 checkpointing
 ^^^^^^^^^^^^^^^^^^
 
-Checkpointing testen we op verschillende manieren. Een eerste vorm van testen is het nagaan van het formaat en de inhoud van verschillende hdf5 files. Hierbij maken we een onderscheid tussen happy-day scenario files en foutieve files (niet conform met het opgestelde formaat, verschillend van de toestand van de simulator, ...). Vervolgens doen we een aantal scenario tests van verschillende tussentijdse checkpoints. Ten slotte vergelijken we de uitkomsten van continue runs (runs die van begin tot einde zijn uitgevoerd) met checkpointed runs (runs die starten vanuit een checkpoint).
+We test checkpointing in different ways:
 
-TBB Parallellisatie
+A first form of testing is checking the format and content of different HDF5 files. We make a difference between happy-day scenario files and wrong files (not according to the format, differing from the simulator's state, ...). Another form is running from various interim checkpoints, after which we compare the results from those runs with runs that ran uninterrupted from start to finish (when using no parallelization, this has to be an exact match). 
+
+TBB Parallelization
 ^^^^^^^^^^^^^^^^^^^
 
-Om TBB te testen hebben we gekozen om eerst scenario’s te schrijven, dan deze scenario’s manueel uit te voeren. We gaan vervolgens de bekomen resultaten na. Als deze resultaten geen fouten bevatten, gebruiken we deze om test cases (gtest) te maken.
+To test our implementation of TBB, we'll first write some scenario's and run them manually. After this, we check the results ourselves. If the results are free of errors, we create a test case from it.
 
-Populatie generator
-^^^^^^^^^^^^^^^^^^^
+Apart from that, we'll also write some unit tests to ensure the behaviour of the code of is as we expect in all three implementations (TBB, OpenMP, Dummy).
 
-Er zijn enkele klassen die de generator helpen bij het genereren van de populatie. Zo zijn er bijvoorbeeld de alias-methode en de klasse die berekeningen doet met geo-coördinaten. Deze hulpklassen zullen getest worden op zowel gewone scenario's als randgevallen.
+Population generator
+^^^^^^^^^^^^^^^^^^^^
 
-De tests van de generator zelf worden onderverdeeld in 3 delen. Het eerste onderdeel zijn de input files. Als deze files semantisch of syntactisch niet correct zijn moet de generator hiermee om kunnen gaan. Ten tweede moeten we de gegenereerde verdelingen nakijken. Extreme waardes zouden bij voldoende grote populaties niet mogen voorkomen. Het is bijvoorbeeld bijna onmogelijk dat er in een random gegenereerde populatie van 1 000 000 mensen met een werkloosheidsgraad van 10% 700 000 werklozen zijn. Ten slotte wordt er ook nog getest op de effectieve waarden. Bijvoorbeeld: alle gezinssamenstellingen zijn van het begin af aan bekend. Het zou niet mogen dat er een familie wordt gegenereerd waarvan de samenstelling eigenlijk niet bestaat.
+There are a few classes that help the generator, for example one that provides an Alias distribution or a class that works with geo-coordinates. These classes will have unit tests for various edge cases and configurations.
 
-Multiregio
-^^^^^^^^^^
+Testing the generator itself is split in three parts:
 
-In onze architectuur plannen we om de details van de MPI communicatie volledig weg te abstraheren in een interface die gelijk is voor zowel shared-memory implementatie als voor de MPI implementatie. Eens de implementatie van die interface voor MPI klaar is, testen we dit uitgebreid. Wegens de extra complexiteit die gedistribueerd testen met zich meebrengt, gaan we dit manueel doen (en dus liefst maar 1 keer). Testen met meerdere processen (en niet meerdere machines) kan wel iets meer herhaald worden.
-In de build configuratie kan MPI nog steeds aan of af gezet worden, maar er worden geen unit tests gedraaid die specifiek communicate tussen meerdere machines testen. Dit is dus eigenlijk specifiek om te zien of alles nog compileert en niet interfereert met andere componenten.
+  - **Input files**: When input files are syntactically or semantically incorrect, the generator has to properly them.
+  
+  - **Distributions**: We have to check whether the distribution of the generated data is as we expect. Extreme values shouldn't occur in sufficiently large populations. For example, it is virtually impossible for a random generated population of one million people to have half a million unemployed people when the given unemployment rate is 10%.
+  
+  - **Output**: Parts of the output can be checked without resorting to statistical analysis. For example, all possible family compositions are known at the start. It shouldn't happen that a family is generated of which the composition is nonexistent.
 
-Om unit tests te schrijven voor multiregio, gebruiken we dan uitsluitend de shared-memory implementatie. In theorie, als de interface zich hetzelfde gedraagt voor shared-memory als voor MPI, is dit voldoende. Om dat op te vangen plannen we om extra aandacht te besteden aan code reviews van MPI-specifieke code.
+.. _MultiRegio:
 
-Wetenschappelijke Visualisatie
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Multi regio
+^^^^^^^^^^^
 
-Wetenschappelijke visualisatie is voornamelijk een GUI implementatie en is dus zeer moeilijk automatisch testbaar. De kwaliteit van deze visualisatie is ook niet objectief meetbaar. We zullen de wetenschappelijke visualisatie voornamelijk doorheen het project manueel testen.
+In our architecture we plan to abstract all MPI communication details in an interface equal to the one used in a shared-memory implementation. Once the MPI implementation for MPI is finished, we'll extensively test it. However, because of the added complexity that is distributed testing, we will do this manually and preferably only once. Testing with multiple processes (and not multiple machines) could be repeated more often. In the build configuration, MPI can still be turned on or off, but no unit tests will be written testing the actual distributed nature of the system. Therefore, the only reason to try compiling with MPI is to test whether it interferes with other components.
+
+To write unit tests for multi regio, we'll use only the shared-memory implementation. In theory, if the interface behaves exactly like the one used by MPI, this should be enough. To make up for the loss in testing, we plan to spend more attention to code reviews regarding MPI.
+
+Scientific Visualisation
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Scientific visualisation is primarily a GUI implemenation and therefore rather hard to test. The quality of our visualisation is also not objectively measurable. Therefore, we'll mainly test the scientific visualisation manually, throughout the project.
