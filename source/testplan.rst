@@ -18,7 +18,7 @@ There are 4 different choices to be made:
 
   - with or without **MPI** (however, see MultiRegio_)
 
-All tests are executed often; on all commits. A pull request may only be merged if CI says it's ok, on top of a manual review. To get quick feedback from unit tests, we're planning to split unit tests from scenario tests using `Travis Stages <https://docs.travis-ci.com/user/build-stages>`_, a very recent feature.
+All tests are executed often; on all commits. A pull request may only be merged if CI says it's ok, on top of a manual review. To get quick feedback from unit tests, we split unit tests from scenario tests using `Travis Stages <https://docs.travis-ci.com/user/build-stages>`_, a very recent feature.
 
 Assignments
 -----------
