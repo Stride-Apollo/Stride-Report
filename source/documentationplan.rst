@@ -57,9 +57,9 @@ Below is a short general listing (per feature) of user questions and their speci
   - Where do I find the executable?
   - How do I use this generator? What is the correct XML format?
 
-- Multiregion
+- Multi region
 
-  - How do I use multiregion? Are there consequences I need to be aware of?
+  - How do I use multi region? Are there consequences I need to be aware of?
 
 - Scientific visualisation
 
