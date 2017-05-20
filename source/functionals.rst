@@ -35,4 +35,3 @@ Scientific visualization
 
 We have chosen for a lot of technologies to help build our visualization tool. For all the information on this topic we refer to our blogposts.
 The development of the tool is in its final stages, but we risk spending a lot of time on this, since visualizing is just so fun and rewarding.
-
