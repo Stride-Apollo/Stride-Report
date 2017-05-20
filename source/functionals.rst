@@ -15,7 +15,7 @@ After the change, we made reasonable progress and were able to implement all of 
 Checkpointing
 -------------
 
-Progress for this was rather consistent, until we had to write a ParaView plugin. Building and configuring ParaView turned out to be rather difficult.
+Progress for this was rather consistent, until we had to write a ParaView plugin. Building and configuring ParaView turned out to be rather difficult, therefore the making of the paraview reader is put on hold. Meanwhile we have been working on an integration of checkpointing with our multi region functionality, this in combination with all the changes that will be made by MPI is not trivial, while the basis is there, the exact integration is not yet finished.
 
 
 Multi region
@@ -30,8 +30,9 @@ TBB
 
 We've already finished a prototype to familiarize ourselves with both OpenMP and TBB. The prototype also showed a small performance increase in favour of TBB.
 
-Scientific visualisation
+Scientific visualization
 ------------------------
 
-We haven't really started working on this yet, except for some early exploration of the different technologies.
+We have chosen for a lot of technologies to help build our visualization tool. For all the information on this topic we refer to our blogposts.
+The development of the tool is in its final stages, but we risk spending a lot of time on this, since visualizing is just so fun and rewarding.
 
