@@ -9,17 +9,17 @@ Everyone is responsible for the documentation of his own code/functionality.
 Documenting the code of another person is discouraged.
 Also documentation that doesn’t add additional information is left behind (see the following example):
 
-.. code-block:: c
+.. code-block:: c++
 
   /// gets age of Person
   int getAge() const;
 
-For reference documentation we chose to use Doxygen. So we also use the associated syntax to provide more information for the arguments etc. We try to use the currently present documentation style as much as possible.
+For reference documentation we chose to use Doxygen. This means we also use the associated syntax to provide more information for the arguments etc. We try to use the currently present documentation style as much as possible.
 
 Hosting
 -------
 
-We plan to make use of readthedocs.org for both the general documentation (manual) and the reference documentation (doxygen). ReadTheDocs provides a couple of handy benefits:
+We plan to use readthedocs.org for both the general documentation (manual) and the reference documentation (doxygen). ReadTheDocs provides a couple of handy benefits:
 
  - Builds the documentation itself
  - Available for every branch (=> works well with our git workflow)
