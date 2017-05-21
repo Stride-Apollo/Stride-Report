@@ -23,7 +23,10 @@ Multi region
 
 We splitted this in two parts, as described in the assignment. The first version was a shared-memory implementation. We've almost finished this. However, we still have to decide on the configuration.
 
-The second part, an MPI implementation, is planned later in the project.
+We are now working on a prototype for the MPI part of multi region.
+This prototype is almost finished but at the moment we only send messages between processes.
+The messaging between real life computers is still a work in progress.
+Besides this we also need to determine how we use :code:`std::future` in this specific situation.
 
 TBB
 ---
