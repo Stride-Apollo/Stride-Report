@@ -20,6 +20,7 @@ This is the report for our Bachelor Thesis project, which consists of extending 
    :maxdepth: 2
    :caption: Table of contents
    
+   Index <self>
    artifacts.rst
    functionals.rst
    nonfunctionals.rst

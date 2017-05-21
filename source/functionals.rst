@@ -42,10 +42,9 @@ TBB (UniPar)
 
 First, we made a prototype to familiarize ourselves with both OpenMP and TBB. The prototype also showed a small performance increase in favour of TBB. However, a second prototype that was more in line with how OpenMP was used in the main project showed equal performance for both OpenMP and TBB.
 
-We decided to first develop our code for unifying both parallelisation libraries in the prototype. At that point, we also devised a name for our little library: UniPar, short for Unified Parallelisation. It makes extensive use of templates (including parameter packs) and lambda's (including ``std::forward``). In our prototype, performance was identical between the different versions.
+We decided to first develop our code for unifying both parallelisation libraries in the prototype. At that point, we also devised a name for our little library: UniPar, short for Unified Parallelisation. It makes extensive use of templates (including parameter packs) and lambda's (including ``std::forward``). In our prototype, performance was identical between the different versions. (The entire table can be found `here <https://docs.google.com/spreadsheets/d/1rCmMDmEkjKxu_n83LOZ5hmwIRmUpV9fPaxiVp4d_rp8/pubhtml?gid=481027622&single=true>`_.)
 
-.. todo::
-   Graph showing the performance
+.. image:: _static/tbb_proto_chart.png
 
 Then we placed the UniPar library in the main Stride project. This did bring up some issues. The biggest one is the fact that TBB is a bit more high-level that OpenMP. The loop that used OpenMP in Stride, made use of an ``RngHandler``. Those are kept in a vector, one for each thread. This vector is then indexed using ``omp_get_thread_num()``. However, in TBB this function was (as advised by the OpenMP group at Intel) `purposefully removed <https://software.intel.com/en-us/blogs/2008/01/31/abstracting-thread-local-storage>`_. This gave us two options; either provide our own way of getting a thread number in TBB (which would be against TBB's way of working), or devise another way of providing random numbers.
 
@@ -58,7 +57,7 @@ To verify that our implementation wasn't at fault, we tested the original OpenMP
   - Minimum: 56116 (70000 - 56116 = 13884)
   - Maximum: 108126 (108126 - 70000 = 38126)
 
-This shows us that when using random seeds, we are better of using an expected number of cases of 80000 with a tolerated difference of 30000.
+This shows us that when using random seeds, we are better off using an expected number of cases of 80000 with a tolerated difference of 30000.
 
 
 Scientific visualization
