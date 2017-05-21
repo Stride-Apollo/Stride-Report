@@ -33,6 +33,7 @@ We've already finished a prototype to familiarize ourselves with both OpenMP and
 Scientific visualization
 ------------------------
 
-We have chosen for a lot of technologies to help build our visualization tool. For all the information on this topic we refer to our blogposts.
+We have chosen for a lot of technologies to help build our visualization tool. We use electron to build a native cross-platform desktop application with web technologies like javascript and css. Electron is able of extracting a buildable executable tool which is what we want for our visualization tool. Due to usage of web technologies we have access to a number of useful libraries. We use mapbox for the mapview, plotly for elegant graphs, angularjs for the dynamic content of our tool and material design lite for the overall styling. Once we were all acquainted with these new languages development went very smooth.
+
 The development of the tool is in its final stages, but we risk spending a lot of time on this, since visualizing is just so fun and rewarding.
 
