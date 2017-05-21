@@ -23,7 +23,10 @@ Multi region
 
 We splitted this in two parts, as described in the assignment. The first version was a shared-memory implementation. We've almost finished this. However, we still have to decide on the configuration.
 
-The second part, an MPI implementation, is planned later in the project.
+We are now working on a prototype for the MPI part of multi region.
+This prototype is almost finished but at the moment we only send messages between processes.
+The messaging between real life computers is still a work in progress.
+Besides this we also need to determine how we use :code:`std::future` in this specific situation.
 
 TBB
 ---
@@ -36,4 +39,3 @@ Scientific visualization
 We have chosen for a lot of technologies to help build our visualization tool. We use electron to build a native cross-platform desktop application with web technologies like javascript and css. Electron is able of extracting a buildable executable tool which is what we want for our visualization tool. Due to usage of web technologies we have access to a number of useful libraries. We use mapbox for the mapview, plotly for elegant graphs, angularjs for the dynamic content of our tool and material design lite for the overall styling. Once we were all acquainted with these new languages development went very smooth.
 
 The development of the tool is in its final stages, but we risk spending a lot of time on this, since visualizing is just so fun and rewarding.
-

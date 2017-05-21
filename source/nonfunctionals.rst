@@ -5,7 +5,7 @@ Performance
 -----------
 
 .. todo::
-   
+
    Performance is not measured yet.
 
 Coding style
@@ -21,7 +21,10 @@ We use Google Test. Tests are already operational, but could use some more struc
 macOS support
 -------------
 
-We have lots of troubles for macOS, mostly related to the ability of specifying the random generator.
+We initially had lots of troubles for macOS, mostly related to the ability of specifying the random generator(static and non-static min/max methods).
+But these problems are now solved. We no longer use polymorphism for the random generator. Instead we use a templated attribute of the population generator to specify the random generator.
+We chose to use the standard random generators (random library) because of the extensive documentation. Moreover the random generator is no longer specified in the XML config file.
+We now use the commandline interface to indicate which specific seed and which random generator you wan't to use.
 
 Continous Integration
 ---------------------

@@ -19,10 +19,8 @@ This is the report for our Bachelor Thesis project, which consists of extending 
 .. toctree::
    :maxdepth: 2
    :caption: Table of contents
-   
+
    functionals.rst
    nonfunctionals.rst
    testplan.rst
-
-.. todo::
-   Include Documentation plan
+   documentationplan.rst
