@@ -21,7 +21,13 @@ Progress for this was rather consistent, until we had to write a ParaView plugin
 Multi region
 ------------
 
-We splitted this in two parts, as described in the assignment. The first version was a shared-memory implementation. We've almost finished this. However, we still have to decide on the configuration.
+We splitted this in two parts, as described in the assignment.
+Our goal here was to make an interface that is designed in such a way, that you wouldn't notice the difference between the shared memory approach and the MPI approach.
+This had some serious consequences for the shared memory solution.
+
+The first version was a shared-memory implementation.
+We had to rewrite the above mentioned interface 3 times. This was due to some misunderstandings and miscommunications.
+We've almost finished this. However, we still have to decide on the configuration.
 
 As is discussed in our test plan, we were planning to create a unified interface for both our shared-memory implementation and our MPI implementation. This interface, which we called ``AsyncSimulator``, has been (and still is) a point of heavy discussion. It makes extensive use of ``std::future`` to provide the needed parallelism.
 
@@ -29,6 +35,7 @@ We are now working on a prototype for the MPI part of multi region.
 This prototype is almost finished but at the moment we only send messages between processes.
 The messaging between real life computers is still a work in progress.
 Besides this we also need to determine how we use ``std::future`` in this specific situation.
+
 
 TBB (UniPar)
 ------------
@@ -57,5 +64,6 @@ This shows us that when using random seeds, we are better of using an expected n
 Scientific visualization
 ------------------------
 
-We have chosen for a lot of technologies to help build our visualization tool. For all the information on this topic we refer to our blogposts.
+We have chosen for a lot of technologies to help build our visualization tool. We use electron to build a native cross-platform desktop application with web technologies like javascript and css. Electron is able of extracting a buildable executable tool which is what we want for our visualization tool. Due to usage of web technologies we have access to a number of useful libraries. We use mapbox for the mapview, plotly for elegant graphs, angularjs for the dynamic content of our tool and material design lite for the overall styling. Once we were all acquainted with these new languages development went very smooth.
+
 The development of the tool is in its final stages, but we risk spending a lot of time on this, since visualizing is just so fun and rewarding.
