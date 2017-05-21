@@ -21,12 +21,21 @@ Progress for this was rather consistent, until we had to write a ParaView plugin
 Multi region
 ------------
 
-We splitted this in two parts, as described in the assignment. The first version was a shared-memory implementation. We've almost finished this. However, we still have to decide on the configuration.
+We splitted this in two parts, as described in the assignment.
+Our goal here was to make an interface that is designed in such a way, that you wouldn't notice the difference between the shared memory approach and the MPI approach.
+This had some serious consequences for the shared memory solution.
+
+The first version was a shared-memory implementation.
+We had to rewrite the above mentioned interface 3 times. This was due to some misunderstandings and miscommunications.
+We've almost finished this. However, we still have to decide on the configuration.
 
 We are now working on a prototype for the MPI part of multi region.
 This prototype is almost finished but at the moment we only send messages between processes.
 The messaging between real life computers is still a work in progress.
 Besides this we also need to determine how we use :code:`std::future` in this specific situation.
+
+The addition of travellers to the project brought lots of troubles. Originally we wanted to use pointers to associate a traveller with his home person, but this wouldn't work in a distributed system.
+This resulted of course in a small performance hit.
 
 TBB
 ---
