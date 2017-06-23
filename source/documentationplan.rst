@@ -45,7 +45,6 @@ Below is a short general listing (per feature) of user questions and their speci
 - Checkpointing
 
   - How do I use checkpointing? How do I activate checkpointing?
-  - Paraview ⇒ Where can I find the executable? How does it work? What do I get to see?
 
 - TBB parallelisation
 
