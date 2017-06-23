@@ -29,9 +29,17 @@ We now use the commandline interface to indicate which specific seed and which r
 Continous Integration
 ---------------------
 
-At first, we misunderstood the requirements related to CI. These requirements are relatively in Jenkins, but our Git Workflow (which we're very fond of) is thightly integrated with Travis.
+At first, we misunderstood the requirements related to CI. These requirements are relatively easy in Jenkins, but our Git Workflow (which we're very fond of) is thightly integrated with Travis.
 
 As a solution, we've properly divided the build and run steps, and provided a much cleaner job log that gives you an instant overview of what tests failed.
+
+We also use `Travis Build Stages https://docs.travis-ci.com/user/build-stages`_, a new beta-feature in Travis that allows us to build in 3 stages:
+
+  - Code quality check
+  - Unit Tests
+  - Scenario Tests
+  
+and stop a build as soon as one of the stages fails, that way we have faster cycles and a better workflow.
 
 Documentation
 -------------
