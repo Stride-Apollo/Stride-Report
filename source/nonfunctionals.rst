@@ -33,7 +33,7 @@ At first, we misunderstood the requirements related to CI. These requirements ar
 
 As a solution, we've properly divided the build and run steps, and provided a much cleaner job log that gives you an instant overview of what tests failed.
 
-We also use `Travis Build Stages https://docs.travis-ci.com/user/build-stages`_, a new beta-feature in Travis that allows us to build in 3 stages:
+We also use `Travis Build Stages <https://docs.travis-ci.com/user/build-stages>`_, a new beta-feature in Travis that allows us to build in 3 stages:
 
   - Code quality check
   - Unit Tests
