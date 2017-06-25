@@ -74,7 +74,7 @@ Scientific visualization
 We have chosen for a lot of technologies to help build our visualization tool. We use `Electron <https://electron.atom.io/>`_ to build a native cross-platform desktop application with web technologies like Javascript and CSS. Electron is able of extracting a buildable executable tool which is what we want for our visualization tool. Due to usage of web technologies we have access to a number of useful libraries. We use 
 `Mapbox <https://www.mapbox.com/>`_ for the mapview, `Plotly <https://plot.ly/>`_ for elegant graphs, `AngularJS <https://angularjs.org/>`_ for the dynamic content of our tool and `Material Design Lite <https://getmdl.io/>`_ for the overall styling. Most of these tools were used by at least one of the developers in this subgroup already, so the learning curve was not as steep as it might have been.
 
-The development of the tool is in its final stages, however the layout and design can always be improved, but that's not our top priority of course.
+The development of the tool is finished, however the layout and design can always be improved, but that's not our top priority of course.
 
 The first presentation of this tool was shown at the beta release, the overall feedback was very positive and the idea of the tool was right. 
 
