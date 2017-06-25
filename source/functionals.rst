@@ -76,4 +76,6 @@ We have chosen for a lot of technologies to help build our visualization tool. W
 
 The development of the tool is in its final stages, however the layout and design can always be improved, but that's not our top priority of course.
 
-The first presentation of this tool was shown at the beta release, the overall feedback was very positive and the idea of the tool was right. A few adjustments however needed to be done: We added aggregation of different cluster types onto the same location for more information in a less cluttered way. We also added a better overview panel complete with visualized data of our population generator. This last addition guarantees a nice cohesion between different parts of the overall assignment.
+The first presentation of this tool was shown at the beta release, the overall feedback was very positive and the idea of the tool was right. 
+
+A few adjustments however needed to be done: We added aggregation of different cluster types onto the same location for more information in a less cluttered way. We also added a better overview panel complete with visualized data of our population generator. This last addition guarantees a nice cohesion between different parts of the overall assignment. We know also have an exciting airport function that shows airport travel and the area of influence.
