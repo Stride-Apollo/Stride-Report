@@ -37,12 +37,15 @@ The first version was a shared-memory implementation.
 We had to rewrite the above mentioned interface 3 times. This was due to some misunderstandings and miscommunications.
 We spent lots of time on the design of a good configuration structure, as mentioned before. Once this was decided, the interface of multi region needed a rewrite but the overall development was easier.
 
-As is discussed in our test plan, we were planning to create a unified interface for both our shared-memory implementation and our MPI implementation. This interface, which we called ``AsyncSimulator``, has been (and still is) a point of heavy discussion. It makes extensive use of ``std::future`` to provide the needed parallelism.
+As is discussed in our test plan, we were planning to create a unified interface for both our shared-memory implementation and our MPI implementation. This interface, which we called ``AsyncSimulator``, has been a point of heavy discussion. It makes extensive use of ``std::future`` to provide the needed parallelism.
 
-We are now working on a prototype for the MPI part of multi region.
-This prototype is almost finished but at the moment we only send messages between processes.
-The messaging between real life computers is still a work in progress.
-Besides this we also need to determine how we use ``std::future`` in this specific situation.
+
+Distributed multi region
+------------------------
+
+We made quite some progress in providing the necessary functionality for MPI, however we did not finish it before the deadline. Our experience with MPI did learn us that it may not be the best fit for this problem. In fact, a library like `Avro <https://avro.apache.org>`_ (the RPC part of it -- not available for C++) may be more suited for this. Strong serialization support (without extra code), as is standard in Java, would also be a huge help.
+
+Because of our design, it is trivial to support mixing local and distributed simulators.
 
 
 TBB (UniPar)
