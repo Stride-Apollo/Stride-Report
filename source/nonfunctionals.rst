@@ -6,6 +6,7 @@ Coding style
 
 We've defined a relatively strict coding style, and have committed to also convert existing code and new changes to this format.
 
+
 macOS support
 -------------
 
@@ -14,6 +15,9 @@ But these problems are now solved. We no longer use polymorphism for the random 
 We chose to use the standard random generators (random library) because of the extensive documentation. Moreover the random generator is no longer specified in the XML config file.
 We now use the commandline interface to indicate which specific seed and which random generator you wan't to use.
 
+Besides the random generators, there was also a minor issue with the visualization app. This problem was caused by a different folder structure of the Electron app on mac OS.
+The folder issue was resolved quickly and doesn't require further information.
+
 
 Continous Integration
 ---------------------
@@ -21,6 +25,15 @@ Continous Integration
 At first, we misunderstood the requirements related to CI. These requirements are relatively easy to do in Jenkins, but our Git Workflow (which we're very fond of) is thightly integrated with Travis.
 
 As a solution, we've properly divided the build and run steps, and provided a much cleaner job log that gives you an instant overview of what tests failed.
+
+We also use `Travis Build Stages <https://docs.travis-ci.com/user/build-stages>`_, a new beta-feature in Travis that allows us to build in 3 stages:
+
+  - Code quality check
+  - Unit Tests
+  - Scenario Tests
+
+and stop a build as soon as one of the stages fails, that way we have faster cycles and a better workflow.
+
 
 Documentation
 -------------
