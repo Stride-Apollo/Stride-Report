@@ -26,6 +26,9 @@ But these problems are now solved. We no longer use polymorphism for the random 
 We chose to use the standard random generators (random library) because of the extensive documentation. Moreover the random generator is no longer specified in the XML config file.
 We now use the commandline interface to indicate which specific seed and which random generator you wan't to use.
 
+Besides the random generators, there was also a minor issue with the visualization app. This problem was caused by a different folder structure of the Electron app on mac OS.
+The folder issue was resolved quickly and doesn't require further information.
+
 Continous Integration
 ---------------------
 
@@ -38,7 +41,7 @@ We also use `Travis Build Stages <https://docs.travis-ci.com/user/build-stages>`
   - Code quality check
   - Unit Tests
   - Scenario Tests
-  
+
 and stop a build as soon as one of the stages fails, that way we have faster cycles and a better workflow.
 
 Documentation
